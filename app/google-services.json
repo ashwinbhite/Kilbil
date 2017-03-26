@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "521904537924",
+    "firebase_url": "https://kilbil-9f986.firebaseio.com",
+    "project_id": "kilbil-9f986",
+    "storage_bucket": "kilbil-9f986.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521904537924:android:f303fd5ce3018b65",
+        "android_client_info": {
+          "package_name": "com.example.ashtech.kilbil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521904537924-81rr6v2d8l7ej9j1a6bqhqf0ibgtvc2c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ashtech.kilbil",
+            "certificate_hash": "dd8d2ed3bcb4ac3c63c73b89dab0f79154133143"
+          }
+        },
+        {
+          "client_id": "521904537924-03khp3cega7aeog7n7tqcie75si93eti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeozNAqkKXV4lervcYM9AMZUVsObJ5uVA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521904537924-03khp3cega7aeog7n7tqcie75si93eti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
