@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+//This class is for the homework page
 public class HomeworkActivity extends AppCompatActivity{
 
     GridView grid;
@@ -38,9 +39,9 @@ public class HomeworkActivity extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-               Toast.makeText(HomeworkActivity.this, "You Clicked at " +web[position], Toast.LENGTH_SHORT).show();
+              // Toast.makeText(HomeworkActivity.this, "You Clicked at " +web[position], Toast.LENGTH_SHORT).show();
 
-           switch (+ position){
+           switch (position){
 
                     case 0:
                         AboutFragment AboutFragment = new AboutFragment();
