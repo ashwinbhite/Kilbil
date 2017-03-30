@@ -51,7 +51,7 @@ public class HomeworkActivity extends AppCompatActivity{
                         AboutFragment aboutFragment = new AboutFragment();
                         android.app.FragmentManager fm = getFragmentManager();
                         fm.beginTransaction().add(R.id.activity_homework,aboutFragment,"AboutFragment").commit();
-                        homeworkLL.setVisibility(View.GONE);//This is require else the fragment will get overlap on the existing view.  try commenting this line and test.
+                        homeworkLL.setVisibility(View.GONE);//This is require else the fragment will get overlap on the existing view. try commenting this line and test.
                         break;
                     case 1:
 
