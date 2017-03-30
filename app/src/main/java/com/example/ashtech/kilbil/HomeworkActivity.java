@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class HomeworkActivity extends AppCompatActivity{
 
     GridView grid;
+
     String[] web = {
             "Google",
             "Github",
@@ -30,9 +31,9 @@ public class HomeworkActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homework);
-
-        CustomGrid adapter = new CustomGrid(HomeworkActivity.this, web, imageId);
         grid=(GridView)findViewById(R.id.grid);
+        CustomGrid adapter = new CustomGrid(HomeworkActivity.this, web, imageId);
+
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -47,9 +48,9 @@ public class HomeworkActivity extends AppCompatActivity{
                         AboutFragment AboutFragment = new AboutFragment();
                         FragmentManager fm1 = getSupportFragmentManager();
                         fm1.beginTransaction().replace(R.id.activity_main, AboutFragment, "AboutFragment").commit();
-
                         break;
                     case 1:
+
                         break;
                     case 2:
                         break;
