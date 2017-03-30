@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 //This class is for the homework page
 public class HomeworkActivity extends AppCompatActivity{
 
     GridView grid;
+    private LinearLayout homeworkLL;
 
     String[] web = {
             "Google",
@@ -32,6 +34,7 @@ public class HomeworkActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homework);
         grid=(GridView)findViewById(R.id.grid);
+        homeworkLL= (LinearLayout) findViewById(R.id.homework_ll);
         CustomGrid adapter = new CustomGrid(HomeworkActivity.this, web, imageId);
 
         grid.setAdapter(adapter);
@@ -45,9 +48,10 @@ public class HomeworkActivity extends AppCompatActivity{
            switch (position){
 
                     case 0:
-                        AboutFragment AboutFragment = new AboutFragment();
-                        FragmentManager fm1 = getSupportFragmentManager();
-                        fm1.beginTransaction().replace(R.id.activity_main, AboutFragment, "AboutFragment").commit();
+                        AboutFragment aboutFragment = new AboutFragment();
+                        android.app.FragmentManager fm = getFragmentManager();
+                        fm.beginTransaction().add(R.id.activity_homework,aboutFragment,"AboutFragment").commit();
+                        homeworkLL.setVisibility(View.GONE);//This is require else the fragment will get overlap on the existing view.  try commenting this line and test.
                         break;
                     case 1:
 

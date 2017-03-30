@@ -9,6 +9,12 @@
     tools:context="com.example.ashtech.kilbil.HomeworkActivity"
     android:background="@drawable/butterfly">
 
+    <LinearLayout
+        android:id="@+id/homework_ll"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <TextView
         android:gravity="center"
         android:textSize="22sp"
@@ -26,7 +32,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/grid"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="10dp"
         />
+    </LinearLayout>
 
 </RelativeLayout>
