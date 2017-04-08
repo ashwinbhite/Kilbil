@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ashtech.kilbil">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +19,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeworkActivity" />
-        <activity android:name=".FeedbackActivity"></activity>
+        <activity android:name=".FeedbackActivity" />
+        <activity android:name=".GalleryActivity" />
+        <activity
+            android:name=".DemoActivity"
+            android:label="@string/title_activity_demo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UploadActivity" />
+        <activity android:name=".ImageListActivity"></activity>
     </application>
 
 </manifest>

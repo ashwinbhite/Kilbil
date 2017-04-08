@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -9,11 +9,22 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ashtech.kilbil.MainActivity"
-    android:background="@drawable/butterfly">
+    android:background="@drawable/stars">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainLL">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/image"
+        android:src="@drawable/stars"/>
 
     <Button
         android:text="About us"
@@ -35,7 +46,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:id="@+id/button2"
+        android:id="@+id/btn_gallery"
         android:layout_below="@+id/button"
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button"
@@ -47,9 +58,9 @@
         android:textColor="#fff"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
+        android:layout_below="@+id/btn_gallery"
+        android:layout_alignLeft="@+id/btn_gallery"
+        android:layout_alignStart="@+id/btn_gallery"
         android:layout_marginTop="28dp"
         android:id="@+id/button3"
         android:background="#95ce30"/>
@@ -92,5 +103,7 @@
         android:layout_marginTop="21dp"
         android:id="@+id/button6" />
 
+
 </RelativeLayout>
-</ScrollView>
+    </LinearLayout>
+</RelativeLayout>
