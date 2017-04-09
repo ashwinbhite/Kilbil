@@ -22,6 +22,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
@@ -36,6 +37,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     private Uri filePath;
     private StorageReference storageReference;
     private final int requestCode = 234;
+    private byte[] byteImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,10 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             Bitmap bitmap = (Bitmap) b.get("data");
             imageView.setImageBitmap(bitmap);
 
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byteImg = baos.toByteArray();
+
         }
 
     }
@@ -97,7 +103,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             progressDialog.show();
 
             StorageReference riversRef = storageReference.child("images/pic.jpg");
-            riversRef.putFile(filePath)
+            riversRef.putBytes(byteImg)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
