@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_gallery"
     android:layout_width="match_parent"
@@ -11,18 +11,38 @@
     tools:context="com.example.ashtech.kilbil.GalleryActivity"
     android:orientation="vertical"
     android:weightSum="1">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="upload"
-        android:id="@+id/btnUpload"/>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:textColor="#FFFF"
+        android:text="Upload"
+        android:id="@+id/btnUpload"
+        android:textSize="20sp"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_marginTop="110dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+      android:textColor="#FFFF"
         android:text="download"
-        android:id="@+id/fetch"/>
+        android:id="@+id/fetch"
+        android:textSize="20sp"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/btnUpload"
+        android:layout_alignStart="@+id/btnUpload" />
 
 
-
-</LinearLayout>
+</RelativeLayout>

@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mainLL= (LinearLayout) findViewById(R.id.mainLL);
 
+        btn_aboutus= (Button) findViewById(R.id.button);
         btn_Schedule= (Button) findViewById(R.id.button4);
         btn_feedback= (Button) findViewById(R.id.button6);
-        btn_aboutus= (Button) findViewById(R.id.button);
         btn_gallery = (Button) findViewById(R.id.btn_gallery);
 
         btn_aboutus.setOnClickListener(new View.OnClickListener(){
