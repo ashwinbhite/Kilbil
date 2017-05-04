@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ashtech.kilbil">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -26,7 +26,9 @@
             android:label="@string/title_activity_demo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UploadActivity" />
-        <activity android:name=".ImageListActivity"></activity>
+        <activity android:name=".ImageListActivity" />
+        <activity android:name=".SanshtaActivity" />
+        <activity android:name=".DiaryActivity"></activity>
     </application>
 
 </manifest>

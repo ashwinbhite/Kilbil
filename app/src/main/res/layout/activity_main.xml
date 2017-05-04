@@ -17,18 +17,24 @@
         android:layout_width="match_parent"
         android:layout_height="644dp">
 
-        <com.flaviofaria.kenburnsview.KenBurnsView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/image"
-            android:src="@drawable/stars1"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
 
 
         <Button
-            android:text="gallery"
+            android:text="@string/demo"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/button"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/buttonshape"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+
+        <Button
+            android:text="Teacher's login"
             android:textSize="18sp"
             android:textColor="#fff"
             android:layout_width="300dp"
@@ -90,10 +96,11 @@
         android:background="@drawable/buttonshape"
             android:layout_below="@+id/button5"
             android:layout_alignLeft="@+id/button5"
-            android:layout_alignStart="@+id/button5" />
+            android:layout_alignStart="@+id/button5"
+            />
 
         <Button
-            android:text="Sample"
+            android:text="Event GALLERY"
             android:textSize="18sp"
             android:textColor="#fff"
             android:layout_width="300dp"
@@ -105,19 +112,14 @@
             android:layout_alignLeft="@+id/button6"
             android:layout_alignStart="@+id/button6" />
 
-        <Button
-
-        android:text="About "
-        android:textSize="18sp"
-        android:textColor="#fff"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/button"
-            android:layout_marginTop="16dp"
-        android:background="@drawable/buttonshape"
+        <com.flaviofaria.kenburnsview.KenBurnsView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/image"
+            android:src="@drawable/stars1"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
 
     </RelativeLayout>

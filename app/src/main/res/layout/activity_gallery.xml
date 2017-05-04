@@ -14,7 +14,7 @@
 
     <Button
         android:textColor="#FFFF"
-        android:text="Upload"
+        android:text="Upload photos"
         android:id="@+id/btnUpload"
         android:textSize="20sp"
         android:layout_width="290dp"
@@ -30,7 +30,7 @@
 
     <Button
       android:textColor="#FFFF"
-        android:text="download"
+        android:text="upload homework"
         android:id="@+id/fetch"
         android:textSize="20sp"
         android:layout_width="290dp"

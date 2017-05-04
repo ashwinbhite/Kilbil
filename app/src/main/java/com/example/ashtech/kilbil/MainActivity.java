@@ -10,10 +10,11 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
     private LinearLayout mainLL;
+    Button btn_about_us;
     Button btn_Schedule;
     Button btn_feedback;
-    Button btn_aboutus;
     Button btn_gallery;
+    Button btn_diary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,18 +22,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mainLL= (LinearLayout) findViewById(R.id.mainLL);
 
-        btn_aboutus= (Button) findViewById(R.id.button);
+        btn_about_us= (Button) findViewById(R.id.button);
         btn_Schedule= (Button) findViewById(R.id.button4);
         btn_feedback= (Button) findViewById(R.id.button6);
         btn_gallery = (Button) findViewById(R.id.btn_gallery);
+        btn_diary= (Button) findViewById(R.id.button3);
 
-        btn_aboutus.setOnClickListener(new View.OnClickListener(){
+        btn_about_us.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
-                AboutUsFragment aboutUsFragment =new AboutUsFragment();
-                android.app.FragmentManager fm= getFragmentManager();
-                fm.beginTransaction().add(R.id.activity_main,aboutUsFragment,"AboutUsFragment").commit();
-                mainLL.setVisibility(View.GONE);
+                Intent myIntent =new Intent(MainActivity.this,SanshtaActivity.class);
+                startActivity(myIntent);
 
             }
 
@@ -53,6 +53,16 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent myIntent = new Intent(MainActivity.this,
                         HomeworkActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn_diary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent myIntent = new Intent(MainActivity.this,
+                        DiaryActivity.class);
                 startActivity(myIntent);
             }
         });
