@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.ashtech.kilbil.MainActivity">
+    tools:context="com.example.ashtech.kilbil.DiaryActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
