@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class GalleryActivity extends AppCompatActivity {
+public class TeacherLoginActivity extends AppCompatActivity {
 
 
     Button btnUpload;
@@ -18,7 +18,7 @@ public class GalleryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gallery);
+        setContentView(R.layout.activity_teacher_login);
 
         btnUpload= (Button) findViewById(R.id.btnUpload);
         btnFetch= (Button) findViewById(R.id.fetch);
@@ -26,8 +26,8 @@ public class GalleryActivity extends AppCompatActivity {
         btnUpload.setOnClickListener(new View.OnClickListener(){
             public void onClick(View V){
 
-                Intent myIntent = new Intent(GalleryActivity.this,UploadActivity.class);
-                GalleryActivity.this.startActivity(myIntent);
+                Intent myIntent = new Intent(TeacherLoginActivity.this,UploadActivity.class);
+                TeacherLoginActivity.this.startActivity(myIntent);
 
             }
 
@@ -35,8 +35,8 @@ public class GalleryActivity extends AppCompatActivity {
         btnFetch.setOnClickListener(new View.OnClickListener(){
             public void onClick(View V){
 
-                Intent myIntent1 = new Intent(GalleryActivity.this,DemoActivity.class);
-                GalleryActivity.this.startActivity(myIntent1);
+                Intent myIntent1 = new Intent(TeacherLoginActivity.this,DemoActivity.class);
+                TeacherLoginActivity.this.startActivity(myIntent1);
 
             }
 

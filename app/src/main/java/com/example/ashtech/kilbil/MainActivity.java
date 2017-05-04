@@ -1,7 +1,6 @@
 package com.example.ashtech.kilbil;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btn_gallery.setOnClickListener(new View.OnClickListener(){
             public void onClick(View V){
 
-                Intent myIntent =new Intent(MainActivity.this,GalleryActivity.class);
+                Intent myIntent =new Intent(MainActivity.this,TeacherLoginActivity.class);
                 startActivity(myIntent);
 
             }
