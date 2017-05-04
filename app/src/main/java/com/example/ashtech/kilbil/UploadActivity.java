@@ -79,7 +79,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             imageView.setImageBitmap(bitmap);
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100, baos);
             byteImg = baos.toByteArray();
 
         }

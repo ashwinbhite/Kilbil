@@ -28,7 +28,8 @@
         <activity android:name=".UploadActivity" />
         <activity android:name=".ImageListActivity" />
         <activity android:name=".SanshtaActivity" />
-        <activity android:name=".DiaryActivity"></activity>
+        <activity android:name=".DiaryActivity" />
+        <activity android:name=".EventGalleryActivity"></activity>
     </application>
 
 </manifest>

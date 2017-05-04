@@ -12,8 +12,9 @@ public class MainActivity extends AppCompatActivity {
     Button btn_about_us;
     Button btn_Schedule;
     Button btn_feedback;
-    Button btn_gallery;
+    Button btn_TeacherLogin;
     Button btn_diary;
+    Button btn_EventGallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
         btn_about_us= (Button) findViewById(R.id.button);
         btn_Schedule= (Button) findViewById(R.id.button4);
         btn_feedback= (Button) findViewById(R.id.button6);
-        btn_gallery = (Button) findViewById(R.id.btn_gallery);
+        btn_TeacherLogin = (Button) findViewById(R.id.btn_gallery);
         btn_diary= (Button) findViewById(R.id.button3);
+        btn_EventGallery= (Button) findViewById(R.id.btn_main_gallery);
 
         btn_about_us.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        btn_gallery.setOnClickListener(new View.OnClickListener(){
+        btn_TeacherLogin.setOnClickListener(new View.OnClickListener(){
             public void onClick(View V){
 
                 Intent myIntent =new Intent(MainActivity.this,TeacherLoginActivity.class);
@@ -75,6 +77,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_EventGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent myIntent = new Intent(MainActivity.this,
+                        EventGalleryActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
 
     }

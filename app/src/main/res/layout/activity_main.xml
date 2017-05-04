@@ -105,7 +105,7 @@
             android:textColor="#fff"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button7"
+            android:id="@+id/btn_main_gallery"
             android:background="@drawable/buttonshape"
             android:layout_marginTop="18dp"
             android:layout_below="@+id/button6"
