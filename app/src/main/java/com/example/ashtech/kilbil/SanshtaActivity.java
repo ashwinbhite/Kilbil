@@ -47,8 +47,8 @@ public class SanshtaActivity extends AppCompatActivity  {
 
         private void setupViewPager(ViewPager viewPager) {
             ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-            adapter.addFragment(new OneFragment(), "Sansthan");
-            adapter.addFragment(new TwoFragment(), "Convent");
+            adapter.addFragment(new OneFragment(), "Convent");
+            adapter.addFragment(new TwoFragment(), "Sansthan");
 
             viewPager.setAdapter(adapter);
         }

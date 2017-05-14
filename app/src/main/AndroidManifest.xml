@@ -21,15 +21,12 @@
         <activity android:name=".HomeworkActivity" />
         <activity android:name=".FeedbackActivity" />
         <activity android:name=".TeacherLoginActivity" />
-        <activity
-            android:name=".DemoActivity"
-            android:label="@string/title_activity_demo"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UploadActivity" />
         <activity android:name=".ImageListActivity" />
         <activity android:name=".SanshtaActivity" />
         <activity android:name=".DiaryActivity" />
-        <activity android:name=".EventGalleryActivity"></activity>
+        <activity android:name=".EventGalleryActivity" />
+        <activity android:name=".UpdateHomeworkActivity"></activity>
     </application>
 
 </manifest>
