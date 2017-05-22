@@ -1,6 +1,5 @@
 package com.example.ashtech.kilbil;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -24,7 +23,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
 
 public class UploadActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -142,5 +140,11 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(getApplicationContext(),"No filepath", Toast.LENGTH_SHORT).show();
         }
     }
+
+    /**
+     * Created by Ashtech on 5/14/2017.
+     */
+
+
 }
 

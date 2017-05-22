@@ -199,10 +199,5 @@ A child enters the school at the age (PreNursery) and these tiny tots of our sch
 येथ म्हणे श्री विश्वेशराओ । हा होईल दान पसावो । \n
 येणें वरें ज्ञानदेवो । सुखिया जाला ॥ \n</string>
 
-    <string-array name="class_list">
-        <item>KG I</item>
-        <item>KG II</item>
-        <item>PRENURSERY</item>
-        <item>NURSERY</item>
-    </string-array>
+
 </resources>
