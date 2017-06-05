@@ -35,9 +35,9 @@ public class TeacherLoginActivity extends AppCompatActivity {
         btnFetch.setOnClickListener(new View.OnClickListener(){
             public void onClick(View V){
 
-              /*  Intent myIntent1 = new Intent(TeacherLoginActivity.this,DemoActivity.class);
+              Intent myIntent1 = new Intent(TeacherLoginActivity.this,UpdateHomeworkActivity.class);
                 TeacherLoginActivity.this.startActivity(myIntent1);
-*/
+
             }
 
         });
