@@ -1,9 +1,10 @@
 package com.example.ashtech.kilbil;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,7 +25,9 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 public class UploadActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,6 +41,9 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     private StorageReference storageReference;
     private final int requestCode = 234;
     private byte[] byteImg;
+    private String extr;
+    private File savedfile;
+    Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +58,15 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         root.mkdir();
         uploadFile = new File(root,"fireuploadimg");
 
+
         choose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri outputfileUri = Uri.fromFile(uploadFile);
-                Intent photoCaptureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                photoCaptureIntent.putExtra(MediaStore.EXTRA_OUTPUT,outputfileUri);
-                startActivityForResult(Intent.createChooser(photoCaptureIntent, "Select an Image"), PICK_IMAGE_REQUEST);
+
+
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, PICK_IMAGE_REQUEST);
             }
         } );
 
@@ -70,20 +78,33 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("inside activity result req code="+requestCode +"res code="+resultCode);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data!=null) {
-            Bundle b = data.getExtras();
-            filePath = Uri.parse(data.toUri(0));
-            System.out.println("Filepath="+filePath);
-            Bitmap bitmap = (Bitmap) b.get("data");
-            imageView.setImageBitmap(bitmap);
+        System.out.println("inside activity result req code=" + requestCode + "res code=" + resultCode);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
 
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100, baos);
-            byteImg = baos.toByteArray();
+            try {
+                final Uri imageUri = data.getData();
+                final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                imageView.setImageBitmap(selectedImage);
+                uri=imageUri;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
         }
+    }
 
+        /* Get the real path from the URI */
+    public String getPathFromURI(Uri contentUri) {
+        String res = null;
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+        if (cursor.moveToFirst()) {
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            res = cursor.getString(column_index);
+        }
+        cursor.close();
+        return res;
     }
 
     @Override
@@ -96,14 +117,19 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 
     private void uploadFile() {
         //if there is a file to upload
-        if (filePath != null) {
+        if (uri!=null) {
             //displaying a progress dialog while upload is going on
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading");
             progressDialog.show();
 
+//            Uri file = Uri.fromFile(savedfile);
+                File file = new File(getPathFromURI(uri));
+//            System.out.println("file.getLastPathSegment() "+file.getLastPathSegment());
+//            StorageReference riversRef = storageReference.child("images/"+file.getLastPathSegment());
+
             StorageReference riversRef = storageReference.child("images/pic.jpg");
-            riversRef.putBytes(byteImg)
+           riversRef.putFile(uri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
