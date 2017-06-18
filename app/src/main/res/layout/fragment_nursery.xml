@@ -5,10 +5,11 @@
     tools:context="com.example.ashtech.kilbil.NurseryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="\n 2) Write table of 1 and 11 twice."
-        android:textSize="20sp"/>
+        android:id="@+id/lv_hw">
+
+    </ListView>
 
 </FrameLayout>

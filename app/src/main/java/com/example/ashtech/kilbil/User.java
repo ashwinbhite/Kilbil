@@ -20,4 +20,9 @@ public class User {
 
         this.homework = homework;
     }
+
+    /**
+     * Created by Ashtech on 6/17/2017.
+     */
+
 }

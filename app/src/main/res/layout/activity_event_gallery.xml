@@ -15,4 +15,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show list image"
+        android:onClick="btnShowListImage_Click"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/button7" />
+
 </RelativeLayout>

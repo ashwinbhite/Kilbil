@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ashtech.kilbil.TeacherLoginActivity"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/stars1">
 
     <Button
         android:textColor="#FFFF"

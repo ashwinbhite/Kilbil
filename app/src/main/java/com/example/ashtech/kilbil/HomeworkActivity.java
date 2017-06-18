@@ -45,35 +45,43 @@ public class HomeworkActivity extends AppCompatActivity{
                                     int position, long id) {
               // Toast.makeText(HomeworkActivity.this, "You Clicked at " +web[position], Toast.LENGTH_SHORT).show();
 
-           switch (position){
+        switch (position){
 
                     case 0:
                         AboutFragment aboutFragment = new AboutFragment();
                         android.app.FragmentManager fm = getFragmentManager();
-                        fm.beginTransaction().add(R.id.activity_homework,aboutFragment,"AboutFragment").addToBackStack("HomeworkActivity").commit();
+                        fm.beginTransaction().replace(R.id.activity_homework,aboutFragment,"AboutFragment").addToBackStack("AboutFragment").commit();
                         homeworkLL.setVisibility(View.GONE);//This is require else the fragment will get overlap on the existing view. try commenting this line and test.
                         break;
                     case 1:
-                        NurseryFragment nurseryFragment=new NurseryFragment();
+                       NurseryFragment nurseryFragment=new NurseryFragment();
                         android.app.FragmentManager fm1 = getFragmentManager();
-                        fm1.beginTransaction().add(R.id.activity_homework,nurseryFragment,"NurseryFragment").addToBackStack("HomeworkActivity").commit();
+                        fm1.beginTransaction().replace(R.id.activity_homework,nurseryFragment,"NurseryFragment").addToBackStack("NurseryFragment").commit();
                         homeworkLL.setVisibility(View.GONE);
                         break;
                     case 2:
                         kg1Fragment kg1Fragment = new kg1Fragment();
                         android.app.FragmentManager fm2 = getFragmentManager();
-                        fm2.beginTransaction().add(R.id.activity_homework,kg1Fragment,"KG1Fragment").addToBackStack("HomeworkActivity").commit();
+                        fm2.beginTransaction().replace(R.id.activity_homework,kg1Fragment,"KG1Fragment").addToBackStack("kg1Fragment").commit();
                         homeworkLL.setVisibility(View.GONE);
+                        break;
                     case 3:
                         kg2Fragment kg2Fragment = new kg2Fragment();
                         android.app.FragmentManager fm4 = getFragmentManager();
-                        fm4.beginTransaction().add(R.id.activity_homework,kg2Fragment,"KG2Fragment").addToBackStack("HomeworkActivity").commit();
+                        fm4.beginTransaction().replace(R.id.activity_homework,kg2Fragment,"KG2Fragment").addToBackStack("kg2Fragment").commit();
                         homeworkLL.setVisibility(View.GONE);
+                        break;
                 }
 
             }
         });
         
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        homeworkLL.setVisibility(View.VISIBLE);
     }
 }

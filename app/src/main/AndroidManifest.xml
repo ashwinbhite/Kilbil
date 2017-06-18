@@ -12,15 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".HomeworkActivity" />
         <activity android:name=".FeedbackActivity" />
         <activity android:name=".TeacherLoginActivity" />
@@ -30,7 +28,7 @@
         <activity android:name=".DiaryActivity" />
         <activity android:name=".EventGalleryActivity" />
         <activity android:name=".UpdateHomeworkActivity" />
-
+        <activity android:name=".SansthaActivity"></activity>
     </application>
 
 </manifest>

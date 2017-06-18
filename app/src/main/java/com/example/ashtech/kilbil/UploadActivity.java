@@ -28,13 +28,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.net.URL;
 
 public class UploadActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button upload,choose;
     ImageView imageView;
     private File uploadFile;
-
+    private String url;
 
     private static final int PICK_IMAGE_REQUEST = 234;
     private Uri filePath;
@@ -168,5 +169,6 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(getApplicationContext(),"No filepath", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
 

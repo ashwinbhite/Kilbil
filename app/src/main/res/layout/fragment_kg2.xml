@@ -5,10 +5,11 @@
     tools:context="com.example.ashtech.kilbil.kg2Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="\n 1) Read Poem from chapter 1 and learn."
-        android:textSize="20sp"/>
+        android:id="@+id/lv_hw">
+
+    </ListView>
 
 </FrameLayout>
