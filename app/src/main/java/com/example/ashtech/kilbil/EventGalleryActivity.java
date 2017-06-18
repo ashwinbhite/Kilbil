@@ -22,7 +22,7 @@ public class EventGalleryActivity extends AppCompatActivity {
     File localFile = null;
     private StorageReference mStorageRef;
     private ImageView imageView;
-    public static final String FB_DATABASE_PATH = "image";
+
     public static final int REQUEST_CODE = 1234;
 
     @Override

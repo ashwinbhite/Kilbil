@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,23 +29,55 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
     private DatabaseReference mFirebaseHWDatabase;
-    private Spinner spinner;
+    private TextView txtClass;
     private String userId;
-    private String homeworkString,dateString;
+    private String homeworkString, dateString;
     private long maxId;
+    private String userEmail;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_homework);
 
-        // Get reference of widgets from XML layout
-        spinner = (Spinner) findViewById(R.id.spn_hw_upload);
 
-
+        txtClass = (TextView) findViewById(R.id.txt_class_name);
         input = (EditText) findViewById(R.id.homework);
         btnSave = (Button) findViewById(R.id.btn_upload);
-        et_date= (EditText) findViewById(R.id.etDate);
+        et_date = (EditText) findViewById(R.id.etDate);
+
+
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        // get reference to 'homework' node
+        mFirebaseHWDatabase = mFirebaseInstance.getReference("Homework");
+
+        // store app title to 'app_title' node
+        mFirebaseInstance.getReference("app_title").setValue("Realtime Database");
+
+        userEmail = getIntent().getStringExtra("userEmail");
+        switch (userEmail) {
+            case "teacher1@kilbil.com":
+                mFirebaseHWDatabase = mFirebaseHWDatabase.child("kg1");
+                txtClass.setText("KG I");
+                break;
+            case "teacher2@kilbil.com":
+                mFirebaseHWDatabase = mFirebaseHWDatabase.child("kg2");
+                txtClass.setText("KG II");
+
+                break;
+            case "teacher3@kilbil.com":
+                mFirebaseHWDatabase = mFirebaseHWDatabase.child("nursery");
+                txtClass.setText("Nursery");
+                break;
+            case "teacher4@kilbil.com":
+                mFirebaseHWDatabase = mFirebaseHWDatabase.child("prenursery");
+                txtClass.setText("Pre-Nursery");
+                break;
+
+        }
+
+
 
 
         // Initializing a String Array
@@ -66,33 +97,9 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
-        spinner.setAdapter(spinnerArrayAdapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String text = parent.getSelectedItem().toString();
-                // Toast.makeText(parent.getContext(),"item is"+parent.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //Another interface callback
-            }
-        });
-
-
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        mFirebaseInstance = FirebaseDatabase.getInstance();
-
-        // get reference to 'users' node
-        mFirebaseHWDatabase = mFirebaseInstance.getReference("Homework");
-
-        // store app title to 'app_title' node
-        mFirebaseInstance.getReference("app_title").setValue("Realtime Database");
 
         // app_title change listener
         mFirebaseInstance.getReference("app_title").addValueEventListener(new ValueEventListener() {
@@ -118,10 +125,10 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 homeworkString = input.getText().toString();
-                dateString=et_date.getText().toString();
-                Homework homework = new Homework(spinner.getSelectedItem().toString(),homeworkString,dateString);
+                dateString = et_date.getText().toString();
+                Homework homework = new Homework(txtClass.getText().toString().trim(), homeworkString, dateString);
                 addHomework(homework);
-                Toast.makeText(UpdateHomeworkActivity.this,"Homework uploded successfully",Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateHomeworkActivity.this, "Homework uploded successfully", Toast.LENGTH_SHORT).show();
                 // Check for already existed userId
 //                if (TextUtils.isEmpty(userId)) {
 //                    addHomework(homeworkString);
@@ -134,8 +141,8 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
         mFirebaseHWDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                maxId=dataSnapshot.getChildrenCount()+1;
-                System.out.println("maxId="+maxId);
+                maxId = dataSnapshot.getChildrenCount() + 1;
+                System.out.println("maxId=" + maxId);
 
             }
 
@@ -144,22 +151,22 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
 
             }
         });
-mFirebaseHWDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-    @Override
-    public void onDataChange(DataSnapshot dataSnapshot) {
-        Toast.makeText(UpdateHomeworkActivity.this,"Homework uploded successfully",Toast.LENGTH_SHORT).show();
+        mFirebaseHWDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Toast.makeText(UpdateHomeworkActivity.this, "Homework uploded successfully", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(UpdateHomeworkActivity.this, "Error uploding homework, please try again", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
-    @Override
-    public void onCancelled(DatabaseError databaseError) {
-        Toast.makeText(UpdateHomeworkActivity.this,"Error uploding homework, please try again",Toast.LENGTH_SHORT).show();
-    }
-});
-
-
-    }
-
-    // Changing button text
+    // Changing btn_menu_sansthan text
     private void toggleButton() {
         if (TextUtils.isEmpty(userId)) {
             btnSave.setText("Save");

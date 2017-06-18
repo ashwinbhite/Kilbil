@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:elevation="4dp"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-    <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-        android:id="@+id/section"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:textColor="#fff"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/date"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
     <TextView
+        android:background="@android:color/holo_blue_bright"
+        android:text="20/06/2017"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:text="This is demo homework text. ghkjkjdsjfk hjdjfhdk kjhhfhkj dkjfhdf jhfjdf ."
+        android:layout_margin="5dp"
         android:id="@+id/hwdesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="italic" />
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>
+

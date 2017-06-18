@@ -9,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -54,20 +56,46 @@ public class kg1Fragment extends android.app.Fragment {
         progressDialog.setMessage("Please wait ...");
         progressDialog.show();
 
+
+
+        Query query = mFirebaseHWDatabase.child("kg1");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println("query onDataChange");
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        System.out.println(ds.getValue().toString());
+                        Homework homework = ds.getValue(Homework.class);
+                        homeworkList.add(homework);
+
+                    }
+                    if (progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                    hwAdapter = new HomeworkAdapter(homeworkList,mContext2);
+                    lv_homework.setAdapter(hwAdapter);
+                }else{
+                    Toast.makeText(mContext2, "No records found", Toast.LENGTH_LONG).show();
+                    if (progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
         ValueEventListener valueEventListener=new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    System.out.println(ds.getValue().toString());
-                    Homework homework = ds.getValue(Homework.class);
-                    homeworkList.add(homework);
-
-                }
                 if (progressDialog.isShowing()) {
                     progressDialog.dismiss();
                 }
-                hwAdapter = new HomeworkAdapter(homeworkList,mContext2);
-                lv_homework.setAdapter(hwAdapter);
             }
 
             @Override

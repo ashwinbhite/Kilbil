@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -56,20 +57,42 @@ public class kg2Fragment extends android.app.Fragment {
         progressDialog.setMessage("Please wait ...");
         progressDialog.show();
 
+
+        Query query = mFirebaseHWDatabase.child("kg2");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println("query onDataChange");
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        System.out.println(ds.getValue().toString());
+                        Homework homework = ds.getValue(Homework.class);
+                        homeworkList.add(homework);
+
+                    }
+                    if (progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                    hwAdapter = new HomeworkAdapter(homeworkList,mContext3);
+                    lv_homework.setAdapter(hwAdapter);
+                }else{
+                    Toast.makeText(mContext3, "No records found", Toast.LENGTH_LONG).show();
+                    if (progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         ValueEventListener valueEventListener=new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    System.out.println(ds.getValue().toString());
-                    Homework homework = ds.getValue(Homework.class);
-                    homeworkList.add(homework);
 
-                }
-                if (progressDialog.isShowing()) {
-                    progressDialog.dismiss();
-                }
-                hwAdapter = new HomeworkAdapter(homeworkList,mContext3);
-                lv_homework.setAdapter(hwAdapter);
             }
 
             @Override

@@ -26,11 +26,77 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:id="@+id/button"
+            android:id="@+id/btn_menu_sansthan"
             android:layout_marginTop="16dp"
             android:background="@drawable/buttonshape"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
+
+        <Button
+        android:text="Kilbil diary"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+        android:id="@+id/btn_menu_diary"
+        android:background="@drawable/buttonshape"
+            android:layout_below="@+id/btn_menu_sansthan"
+            android:layout_alignLeft="@+id/btn_menu_login"
+            android:layout_alignStart="@+id/btn_menu_login" />
+
+        <Button
+        android:text="* Homework *"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+        android:id="@+id/btn_menu_homework"
+        android:background="@drawable/buttonshape"
+            android:layout_below="@+id/btn_menu_diary"
+            android:layout_alignLeft="@+id/btn_menu_diary"
+            android:layout_alignStart="@+id/btn_menu_diary" />
+
+        <Button
+        android:text="admission"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+        android:id="@+id/btn_menu_admission"
+        android:background="@drawable/buttonshape"
+            android:layout_below="@+id/btn_menu_homework"
+            android:layout_alignLeft="@+id/btn_menu_homework"
+            android:layout_alignStart="@+id/btn_menu_homework" />
+
+        <Button
+        android:text="feedback"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+        android:id="@+id/btn_menu_feedback"
+        android:background="@drawable/buttonshape"
+            android:layout_below="@+id/btn_menu_admission"
+            android:layout_alignLeft="@+id/btn_menu_admission"
+            android:layout_alignStart="@+id/btn_menu_admission"
+            />
+
+        <Button
+            android:text="Event GALLERY"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_menu_gallery"
+            android:background="@drawable/buttonshape"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/btn_menu_feedback"
+            android:layout_alignLeft="@+id/btn_menu_feedback"
+            android:layout_alignStart="@+id/btn_menu_feedback" />
 
 
         <Button
@@ -40,77 +106,13 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
-            android:id="@+id/btn_gallery"
+            android:id="@+id/btn_menu_login"
             android:background="@drawable/buttonshape"
-            android:layout_below="@+id/button"
-            android:layout_alignLeft="@+id/button"
-            android:layout_alignStart="@+id/button" />
+            android:layout_below="@+id/btn_menu_gallery"
+            android:layout_alignLeft="@+id/btn_menu_sansthan"
+            android:layout_alignStart="@+id/btn_menu_sansthan" />
 
-        <Button
-        android:text="Kilbil diary"
-        android:textSize="18sp"
-        android:textColor="#fff"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-        android:id="@+id/button3"
-        android:background="@drawable/buttonshape"
-            android:layout_below="@+id/btn_gallery"
-            android:layout_alignLeft="@+id/btn_gallery"
-            android:layout_alignStart="@+id/btn_gallery" />
 
-        <Button
-        android:text="* Homework *"
-        android:textSize="18sp"
-        android:textColor="#fff"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-        android:id="@+id/button4"
-        android:background="@drawable/buttonshape"
-            android:layout_below="@+id/button3"
-            android:layout_alignLeft="@+id/button3"
-            android:layout_alignStart="@+id/button3" />
-
-        <Button
-        android:text="admission"
-        android:textSize="18sp"
-        android:textColor="#fff"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-            android:layout_marginTop="21dp"
-        android:id="@+id/button5"
-        android:background="@drawable/buttonshape"
-            android:layout_below="@+id/button4"
-            android:layout_alignLeft="@+id/button4"
-            android:layout_alignStart="@+id/button4" />
-
-        <Button
-        android:text="feedback"
-        android:textSize="18sp"
-        android:textColor="#fff"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-            android:layout_marginTop="19dp"
-        android:id="@+id/button6"
-        android:background="@drawable/buttonshape"
-            android:layout_below="@+id/button5"
-            android:layout_alignLeft="@+id/button5"
-            android:layout_alignStart="@+id/button5"
-            />
-
-        <Button
-            android:text="Event GALLERY"
-            android:textSize="18sp"
-            android:textColor="#fff"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_main_gallery"
-            android:background="@drawable/buttonshape"
-            android:layout_marginTop="18dp"
-            android:layout_below="@+id/button6"
-            android:layout_alignLeft="@+id/button6"
-            android:layout_alignStart="@+id/button6" />
 
         <com.flaviofaria.kenburnsview.KenBurnsView
             android:layout_width="match_parent"

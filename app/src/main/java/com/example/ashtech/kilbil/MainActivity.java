@@ -1,8 +1,6 @@
 package com.example.ashtech.kilbil;
 
-import android.app.ActionBar;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
         mainLL= (LinearLayout) findViewById(R.id.mainLL);
 
-        btn_about_us= (Button) findViewById(R.id.button);
-        btn_Schedule= (Button) findViewById(R.id.button4);
-        btn_feedback= (Button) findViewById(R.id.button6);
-        btn_TeacherLogin = (Button) findViewById(R.id.btn_gallery);
-        btn_diary= (Button) findViewById(R.id.button3);
-        btn_EventGallery= (Button) findViewById(R.id.btn_main_gallery);
+        btn_about_us= (Button) findViewById(R.id.btn_menu_sansthan);
+        btn_Schedule= (Button) findViewById(R.id.btn_menu_homework);
+        btn_feedback= (Button) findViewById(R.id.btn_menu_feedback);
+        btn_TeacherLogin = (Button) findViewById(R.id.btn_menu_login);
+        btn_diary= (Button) findViewById(R.id.btn_menu_diary);
+        btn_EventGallery= (Button) findViewById(R.id.btn_menu_gallery);
 
         btn_about_us.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -85,9 +83,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent myIntent = new Intent(MainActivity.this,
-                        EventGalleryActivity.class);
-                startActivity(myIntent);
+                Intent i = new Intent(MainActivity.this, ImageListActivity.class);
+                startActivity(i);
             }
         });
 

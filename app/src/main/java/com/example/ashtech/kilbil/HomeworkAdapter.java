@@ -54,7 +54,6 @@ public class HomeworkAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) v.getTag();
 
         }
-        viewHolder.txtsection.setText(homeworkList.get(i).getClassName());
         viewHolder.txthwdesc.setText(homeworkList.get(i).getHwDesc());
         viewHolder.txtdate.setText(homeworkList.get(i).getDate());
         return v;
@@ -67,7 +66,6 @@ public class HomeworkAdapter extends BaseAdapter {
 
 
         public ViewHolder(View v) {
-            txtsection = (TextView) v.findViewById(R.id.section);
             txthwdesc = (TextView) v.findViewById(R.id.hwdesc);
             txtdate= (TextView) v.findViewById(R.id.date);
 

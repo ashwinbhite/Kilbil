@@ -18,17 +18,16 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.net.URL;
 
 public class UploadActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -40,11 +39,14 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     private static final int PICK_IMAGE_REQUEST = 234;
     private Uri filePath;
     private StorageReference storageReference;
+    private DatabaseReference mDatabaseImgRef;
     private final int requestCode = 234;
     private byte[] byteImg;
     private String extr;
     private File savedfile;
     Uri uri;
+    public static final String FB_STORAGE_PATH = "image/";
+    public static final String FB_DATABASE_PATH = "image";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         } );
 
         storageReference= FirebaseStorage.getInstance().getReference();
+        mDatabaseImgRef = FirebaseDatabase.getInstance().getReference().child(FB_DATABASE_PATH);
 
         upload.setOnClickListener(this);
     }
@@ -110,7 +113,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        //if the clicked button is upload
+        //if the clicked btn_menu_sansthan is upload
         if (view == upload) {
             uploadFile();
         }
@@ -122,6 +125,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             //displaying a progress dialog while upload is going on
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading");
+            progressDialog.setCancelable(false);
             progressDialog.show();
 
 //            Uri file = Uri.fromFile(savedfile);
@@ -129,17 +133,23 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 //            System.out.println("file.getLastPathSegment() "+file.getLastPathSegment());
 //            StorageReference riversRef = storageReference.child("images/"+file.getLastPathSegment());
 
-            StorageReference riversRef = storageReference.child("images/pic.jpg");
+            StorageReference riversRef = storageReference.child(FB_STORAGE_PATH+System.currentTimeMillis()+".jpg");
            riversRef.putFile(uri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            //if the upload is successfull
-                            //hiding the progress dialog
+
+                            //if the upload is successfull hiding the progress dialog
                             progressDialog.dismiss();
 
                             //and displaying a success toast
                             Toast.makeText(getApplicationContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
+
+                            ImageUpload imageUpload = new ImageUpload(taskSnapshot.getDownloadUrl().toString());
+
+                            //Save image info in to firebase database
+                            String uploadId = mDatabaseImgRef.push().getKey();
+                            mDatabaseImgRef.child(uploadId).setValue(imageUpload);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

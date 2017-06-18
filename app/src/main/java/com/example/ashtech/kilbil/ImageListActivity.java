@@ -26,7 +26,8 @@ public class ImageListActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private File localFile;
     private ImageView imageView;
-    private DatabaseReference mDatabaseRef;
+    private DatabaseReference mDatabaseImgRef;
+    public static final String FB_DATABASE_PATH = "image";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +38,13 @@ public class ImageListActivity extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.listViewImage);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("please wait loading list image");
+        progressDialog.setMessage("Please wait loading list image");
         progressDialog.show();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(EventGalleryActivity.FB_DATABASE_PATH);
+        mDatabaseImgRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
 
 
-        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+        mDatabaseImgRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 progressDialog.dismiss();

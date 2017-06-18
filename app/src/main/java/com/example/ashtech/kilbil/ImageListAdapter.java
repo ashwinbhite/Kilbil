@@ -39,7 +39,7 @@ public class ImageListAdapter extends ArrayAdapter<ImageUpload>{
     public View getView(int position, @Nullable View convertView,@NonNull ViewGroup parent){
         LayoutInflater inflater = context.getLayoutInflater();
         View v=inflater.inflate(resource,null);
-        ImageView img= (ImageView) v.findViewById(R.id.img_gallery_view);
+        ImageView img= (ImageView) v.findViewById(R.id.imgView);
         Glide.with(context).load(list.get(position).getUrl()).into(img);
         return  v;
     }
