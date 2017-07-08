@@ -28,7 +28,7 @@
         <activity android:name=".DiaryActivity" />
         <activity android:name=".EventGalleryActivity" />
         <activity android:name=".UpdateHomeworkActivity" />
-
+        <activity android:name=".DeveloperInfoActivity"></activity>
     </application>
 
 </manifest>

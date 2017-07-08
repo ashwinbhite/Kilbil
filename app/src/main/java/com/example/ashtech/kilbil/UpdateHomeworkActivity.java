@@ -1,13 +1,19 @@
 package com.example.ashtech.kilbil;
 
+import android.app.DatePickerDialog;
+import android.app.DialogFragment;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class UpdateHomeworkActivity extends AppCompatActivity {
+public class UpdateHomeworkActivity extends AppCompatActivity implements DatePickerFragment.OnDateSelectedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -46,6 +52,21 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
         input = (EditText) findViewById(R.id.homework);
         btnSave = (Button) findViewById(R.id.btn_upload);
         et_date = (EditText) findViewById(R.id.etDate);
+        et_date.setInputType(InputType.TYPE_NULL);
+
+
+        et_date.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+
+                    DatePickerFragment datePickerFragment = new DatePickerFragment();
+                    datePickerFragment.show(getFragmentManager(), "datepicker");
+                }
+                return false;
+            }
+        });
 
 
         mFirebaseInstance = FirebaseDatabase.getInstance();
@@ -76,8 +97,6 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
                 break;
 
         }
-
-
 
 
         // Initializing a String Array
@@ -235,6 +254,10 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onDateSelected(String date) {
+        et_date.setText(date);
+    }
 }
 
 

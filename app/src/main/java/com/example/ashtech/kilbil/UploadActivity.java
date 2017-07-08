@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -31,8 +32,9 @@ import java.io.InputStream;
 
 public class UploadActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button upload,choose;
-    ImageView imageView;
+    private Button upload, choose;
+    private ImageView imageView;
+    private EditText edtImgDesc;
     private File uploadFile;
     private String url;
 
@@ -56,10 +58,11 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         upload = (Button) findViewById(R.id.buttonUpload);
         choose = (Button) findViewById(R.id.buttonChoose);
         imageView = (ImageView) findViewById(R.id.imageView);
+        edtImgDesc = (EditText) findViewById(R.id.img_desc);
 
-        File root = new File(Environment.getExternalStorageDirectory()+File.separator+"myDir"+File.separator);
+        File root = new File(Environment.getExternalStorageDirectory() + File.separator + "myDir" + File.separator);
         root.mkdir();
-        uploadFile = new File(root,"fireuploadimg");
+        uploadFile = new File(root, "fireuploadimg");
 
 
         choose.setOnClickListener(new View.OnClickListener() {
@@ -71,9 +74,9 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, PICK_IMAGE_REQUEST);
             }
-        } );
+        });
 
-        storageReference= FirebaseStorage.getInstance().getReference();
+        storageReference = FirebaseStorage.getInstance().getReference();
         mDatabaseImgRef = FirebaseDatabase.getInstance().getReference().child(FB_DATABASE_PATH);
 
         upload.setOnClickListener(this);
@@ -90,7 +93,8 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 imageView.setImageBitmap(selectedImage);
-                uri=imageUri;
+                imageView.setVisibility(View.VISIBLE);
+                uri = imageUri;
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -98,7 +102,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-        /* Get the real path from the URI */
+    /* Get the real path from the URI */
     public String getPathFromURI(Uri contentUri) {
         String res = null;
         String[] proj = {MediaStore.Images.Media.DATA};
@@ -121,7 +125,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 
     private void uploadFile() {
         //if there is a file to upload
-        if (uri!=null) {
+        if (uri != null) {
             //displaying a progress dialog while upload is going on
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading");
@@ -129,12 +133,12 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             progressDialog.show();
 
 //            Uri file = Uri.fromFile(savedfile);
-                //File file = new File(getPathFromURI(uri));
+            //File file = new File(getPathFromURI(uri));
 //            System.out.println("file.getLastPathSegment() "+file.getLastPathSegment());
 //            StorageReference riversRef = storageReference.child("images/"+file.getLastPathSegment());
 
-            StorageReference riversRef = storageReference.child(FB_STORAGE_PATH+System.currentTimeMillis()+".jpg");
-           riversRef.putFile(uri)
+            StorageReference riversRef = storageReference.child(FB_STORAGE_PATH + System.currentTimeMillis() + ".jpg");
+            riversRef.putFile(uri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -144,8 +148,12 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 
                             //and displaying a success toast
                             Toast.makeText(getApplicationContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
-
-                            ImageUpload imageUpload = new ImageUpload(taskSnapshot.getDownloadUrl().toString());
+                            ImageUpload imageUpload;
+                            if(edtImgDesc.getText().toString().trim().length()>0){
+                             imageUpload = new ImageUpload(taskSnapshot.getDownloadUrl().toString(),edtImgDesc.getText().toString().trim());
+                            }else{
+                                imageUpload = new ImageUpload(taskSnapshot.getDownloadUrl().toString(),"");
+                            }
 
                             //Save image info in to firebase database
                             String uploadId = mDatabaseImgRef.push().getKey();
@@ -176,7 +184,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         }
         //if there is not any file
         else {
-            Toast.makeText(getApplicationContext(),"No filepath", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please select an image.", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -116,7 +116,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
                     lluploadButtons.setVisibility(View.VISIBLE);
                     llTeacherlogin.setVisibility(View.GONE);
 
-                   // saveUserPassword();
+                    saveUserPassword();
                     if (progressDialog.isShowing())
                         progressDialog.dismiss();
                 }

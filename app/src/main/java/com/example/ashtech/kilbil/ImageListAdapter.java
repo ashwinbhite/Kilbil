@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
@@ -40,6 +41,12 @@ public class ImageListAdapter extends ArrayAdapter<ImageUpload>{
         LayoutInflater inflater = context.getLayoutInflater();
         View v=inflater.inflate(resource,null);
         ImageView img= (ImageView) v.findViewById(R.id.imgView);
+        TextView tv = (TextView) v.findViewById(R.id.img_item_desc);
+        if(list.get(position).getDesc()!=null && list.get(position).getDesc().length()>0 ) {
+            tv.setText(list.get(position).getDesc());
+        }else{
+            tv.setVisibility(View.GONE);
+        }
         Glide.with(context).load(list.get(position).getUrl()).into(img);
         return  v;
     }

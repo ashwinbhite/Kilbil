@@ -39,6 +39,7 @@
 
 
     <EditText
+        android:inputType="none"
         android:background="@android:drawable/editbox_background"
         android:hint="Date : dd/mm/yy"
         android:layout_width="wrap_content"

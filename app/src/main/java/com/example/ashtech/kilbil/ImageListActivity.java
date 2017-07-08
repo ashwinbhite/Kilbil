@@ -38,7 +38,7 @@ public class ImageListActivity extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.listViewImage);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait loading list image");
+        progressDialog.setMessage("Please wait loading images");
         progressDialog.show();
 
         mDatabaseImgRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
