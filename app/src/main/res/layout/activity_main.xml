@@ -15,7 +15,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="644dp">
+        android:layout_height="644dp"
+        android:background="@drawable/stars1">
 
 
 
@@ -111,17 +112,6 @@
             android:layout_below="@+id/btn_menu_gallery"
             android:layout_alignLeft="@+id/btn_menu_sansthan"
             android:layout_alignStart="@+id/btn_menu_sansthan" />
-
-
-
-        <com.flaviofaria.kenburnsview.KenBurnsView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/image"
-            android:src="@drawable/stars1"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
 
 
     </RelativeLayout>

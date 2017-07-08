@@ -9,15 +9,20 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ashtech.kilbil.UpdateHomeworkActivity"
-    android:background="#b2e1ab">
+    android:background="@drawable/stars1"
+    >
 
     <TextView
         android:text="KG1"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:fontFamily="@string/common_google_play_services_enable_title"
+        android:textSize="24sp"
         android:gravity="center_horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="35dp"
         android:id="@+id/txt_class_name"
-        android:background="#FFFF"
+        android:background="@android:color/holo_red_light"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp" />
@@ -29,33 +34,32 @@
         android:id="@+id/homework"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_alignParentBottom="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_upload"
-        android:text="Upload"
-        android:background="#5fc536"
-
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="58dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="78dp" />
+        android:layout_alignParentStart="true"
+        android:background="@android:drawable/editbox_background"/>
 
 
     <EditText
         android:background="@android:drawable/editbox_background"
-        android:hint="Date "
+        android:hint="Date : dd/mm/yy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="33dp"
         android:id="@+id/etDate"
         android:layout_above="@+id/homework"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp" />
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_upload"
+        android:text="Upload"
+        android:textSize="16dp"
+        android:background="@drawable/buttonshape"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/homework"
+        android:layout_alignLeft="@+id/txt_class_name"
+        android:layout_alignStart="@+id/txt_class_name" />
 
 </RelativeLayout>

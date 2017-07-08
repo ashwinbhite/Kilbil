@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.inlogo);
+       // getActionBar().setTitle("KILBIL");
+        getSupportActionBar().setTitle("KIlBIL");
 
         mainLL= (LinearLayout) findViewById(R.id.mainLL);
 

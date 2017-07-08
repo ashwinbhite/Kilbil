@@ -72,7 +72,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="प. पु. भैय्याजी महाराज बहुउद्देशिय संस्था', नागपुर"
+            android:text="प. पु. भय्याजी महाराज बहुउद्देशिय संस्था', नागपुर"
             android:background="#fff"
             android:textColor="#ff3737"
             android:textAlignment="center"

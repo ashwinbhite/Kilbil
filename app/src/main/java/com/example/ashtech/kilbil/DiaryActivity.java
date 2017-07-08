@@ -74,15 +74,14 @@ public class DiaryActivity extends AppCompatActivity {
          school_info = new ArrayList<DiaryListItem>();
         school_info.add(new DiaryListItem(R.string.schooltime,"School Timing"));
         school_info.add(new DiaryListItem(R.string.meetingtime,"Timing for Meeting"));
-        school_info.add(new DiaryListItem(R.string.Pratidnya,"List of Holidays"));
-        school_info.add(new DiaryListItem(R.string.Pratidnya,"Diwali Vacation"));
-        school_info.add(new DiaryListItem(R.string.Pratidnya,"Winter Vacation"));
-        school_info.add(new DiaryListItem(R.string.Pratidnya,"Summer Vacation"));
-        school_info.add(new DiaryListItem(R.string.Pratidnya,"Conduct for students"));
-        school_info.add(new DiaryListItem(R.string.Pratidnya,"Withdrawl Rules"));
+        school_info.add(new DiaryListItem(R.string.holiday,"List of Holidays"));
+        school_info.add(new DiaryListItem(R.string.holiday,"Diwali Vacation"));
+        school_info.add(new DiaryListItem(R.string.holiday,"Winter Vacation"));
+        school_info.add(new DiaryListItem(R.string.holiday,"Summer Vacation"));
+
 
          prarthna = new ArrayList<DiaryListItem>();
-        prarthna.add(new DiaryListItem(R.string.Pratidnya,"शक्ती दे आम्हास"));
+        prarthna.add(new DiaryListItem(R.string.shaktide,"शक्ती दे आम्हास"));
         prarthna.add(new DiaryListItem(R.string.janganman,"जन गण मन"));
         prarthna.add(new DiaryListItem(R.string.Pratidnya,"प्रतिज्ञा"));
         prarthna.add(new DiaryListItem(R.string.sarasati,"सरस्वती स्तोत्र"));
@@ -93,7 +92,7 @@ public class DiaryActivity extends AppCompatActivity {
         prarthna.add(new DiaryListItem(R.string.namskarmaza,"नमस्कार माझा या ज्ञानमंदिरा"));
         prarthna.add(new DiaryListItem(R.string.shantimantra,"शांति मंत्र"));
         prarthna.add(new DiaryListItem(R.string.pasaydan,"पसायदान"));
-
+        prarthna.add(new DiaryListItem(R.string.pledge,"pledge"));
 
 
 

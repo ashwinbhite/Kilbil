@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@drawable/butterfly">
+    android:background="@drawable/stars1">
 
     <TextView
         android:id="@+id/text1"
@@ -13,9 +13,11 @@
         android:gravity="center"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@android:color/background_light"
         android:fontFamily="sans-serif-smallcaps"
         android:text="\nComplete the fields \nto send an feedback\n"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
 
     <EditText
         android:id="@+id/recipient"
@@ -23,31 +25,48 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:hint="Recipient" />
-
-    <EditText
-        android:id="@+id/subject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Subject" />
+        android:hint="Recipient"
+        android:background="@android:color/white"
+        android:layout_below="@+id/text1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp" />
 
     <EditText
         android:id="@+id/body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Message body" />
+        android:hint="Message body"
+        android:background="@android:color/white"
+        android:layout_below="@+id/subject"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp" />
+
+    <EditText
+        android:id="@+id/subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Subject"
+        android:background="@android:color/white"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/recipient"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/sendEmail"
         android:layout_width="150dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:text="send fedback"
+        android:layout_below="@+id/body"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
         android:textColor="#fff"
-        android:background="#43bd1d"/>
+        android:background="@drawable/buttonshape"/>
 
-</LinearLayout>
+</RelativeLayout>
 

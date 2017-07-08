@@ -19,7 +19,10 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="16dp"
         android:text="Show list image"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_red_light"
         android:onClick="btnShowListImage_Click"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

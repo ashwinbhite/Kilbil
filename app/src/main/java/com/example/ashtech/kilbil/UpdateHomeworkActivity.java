@@ -98,7 +98,7 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setIcon(R.drawable.inlogo);
 
 
         // app_title change listener
@@ -176,7 +176,7 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
     }
 
     /**
-     * Creating new user node under 'users'
+     * Creating newk user node under 'users'
      */
     private void addHomework(Homework homework) {
 
@@ -185,7 +185,7 @@ public class UpdateHomeworkActivity extends AppCompatActivity {
 //            userId = mFirebaseDatabase.push().getKey();
 //        }
 //
-//        User user = new User(homework);
+//        User user = newk User(homework);
 
         mFirebaseHWDatabase.child(String.valueOf(maxId)).setValue(homework);
 

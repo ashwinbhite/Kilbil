@@ -129,7 +129,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             progressDialog.show();
 
 //            Uri file = Uri.fromFile(savedfile);
-                File file = new File(getPathFromURI(uri));
+                //File file = new File(getPathFromURI(uri));
 //            System.out.println("file.getLastPathSegment() "+file.getLastPathSegment());
 //            StorageReference riversRef = storageReference.child("images/"+file.getLastPathSegment());
 
