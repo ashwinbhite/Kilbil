@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.example.ashtech.kilbil.model.ImageUpload;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,7 +52,7 @@ public class ImageListActivity extends AppCompatActivity {
 
                 //Fetch image data from firebase database
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    //com.example.ashtech.kilbil.ImageUpload class require default constructor
+                    //com.example.ashtech.kilbil.model.ImageUpload class require default constructor
                     ImageUpload img = snapshot.getValue(ImageUpload.class);
                     list.add(img);
                 }

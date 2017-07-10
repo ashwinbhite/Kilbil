@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.ashtech.kilbil.model.Homework;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,7 +70,7 @@ public class NurseryFragment extends android.app.Fragment {
                         homeworkList.add(homework);
 
                     }
-                    Collections.reverse(homeworkList);
+                    Collections.sort(homeworkList,Collections.<Homework>reverseOrder());
                     if (progressDialog.isShowing()) {
                         progressDialog.dismiss();
                     }

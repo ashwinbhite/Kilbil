@@ -12,8 +12,10 @@
 
 
     <TextView
+        android:textSize="18sp"
+        android:textStyle="italic"
         android:gravity="center_horizontal|center_vertical"
-        android:text="App developed by Ashwin Bhite. \n   7038564788   \n ashwin.bhite@gmail.com"
+        android:text="App developed by Ashwin Bhite.    \n ashwin.bhite@gmail.com"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

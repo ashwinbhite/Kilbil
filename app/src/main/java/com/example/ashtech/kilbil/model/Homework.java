@@ -1,10 +1,12 @@
-package com.example.ashtech.kilbil;
+package com.example.ashtech.kilbil.model;
+
+import com.example.ashtech.kilbil.DateUtil;
 
 /**
  * Created by Ashtech on 6/12/2017.
  */
 
-public class Homework {
+public class Homework implements Comparable<Homework>{
     private String className;
     private String hwDesc;
     private String date;
@@ -43,4 +45,13 @@ public class Homework {
     public void setDate(String date) {
         this.date = date;
     }
+
+    @Override
+    public int compareTo(Homework o) {
+
+        return DateUtil.stringToDate(this.date).compareTo(DateUtil.stringToDate(o.getDate()));
+
+    }
+
+
 }

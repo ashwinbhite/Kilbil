@@ -1,8 +1,5 @@
 package com.example.ashtech.kilbil;
 
-import android.app.DatePickerDialog;
-import android.app.DialogFragment;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -10,14 +7,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ashtech.kilbil.model.Homework;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -143,17 +139,23 @@ public class UpdateHomeworkActivity extends AppCompatActivity implements DatePic
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                homeworkString = input.getText().toString();
-                dateString = et_date.getText().toString();
-                Homework homework = new Homework(txtClass.getText().toString().trim(), homeworkString, dateString);
-                addHomework(homework);
-                Toast.makeText(UpdateHomeworkActivity.this, "Homework uploded successfully", Toast.LENGTH_SHORT).show();
-                // Check for already existed userId
+                if (et_date.getText().toString().trim().length() > 0 && input.getText().toString().trim().length() > 0) {
+                    homeworkString = input.getText().toString();
+                    dateString = et_date.getText().toString();
+                    Homework homework = new Homework(txtClass.getText().toString().trim(), homeworkString, dateString);
+                    addHomework(homework);
+                    Toast.makeText(UpdateHomeworkActivity.this, "Homework uploded successfully", Toast.LENGTH_SHORT).show();
+                    et_date.setText("");
+                    input.setText("");
+                    // Check for already existed userId
 //                if (TextUtils.isEmpty(userId)) {
 //                    addHomework(homeworkString);
 //                } else {
 //                    updateHomework(homeworkString);
 //                }
+                }else{
+                    Toast.makeText(UpdateHomeworkActivity.this, "Please enter homework", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         toggleButton();

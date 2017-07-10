@@ -1,4 +1,4 @@
-package com.example.ashtech.kilbil;
+package com.example.ashtech.kilbil.model;
 
 /**
  * Created by Ashtech on 6/17/2017.

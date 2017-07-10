@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.ashtech.kilbil.model.Homework;
+
 import java.util.List;
 
 /**
@@ -18,7 +20,7 @@ public class HomeworkAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater layoutInflater;
 
-    public HomeworkAdapter(List<Homework>homeworkList,Context mContext){
+    public HomeworkAdapter(List<Homework>homeworkList, Context mContext){
         this.homeworkList=homeworkList;
         this.mContext=mContext;
     }

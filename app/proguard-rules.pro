@@ -16,3 +16,5 @@
 #   public *;
 #}
 -dontwarn org.w3c.dom.**
+-dontwarn com.google.**
+-keep class com.example.ashtech.kilbil.model.** { *; }

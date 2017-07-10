@@ -50,6 +50,7 @@ public class DatePickerFragment extends DialogFragment
 
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        dateselect.onDateSelected(dayOfMonth + "/" + monthOfYear + "/" + year);
+        dateselect.onDateSelected(dayOfMonth + "/" + (monthOfYear +1)+ "/" + year);
     }
+
 }
